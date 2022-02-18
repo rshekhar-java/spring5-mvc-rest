@@ -25,7 +25,7 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn test mvn integration-test
+          command: mvn test
       - store_test_results:
           path: target/surefire-reports
       - run:
