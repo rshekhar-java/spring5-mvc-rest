@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 //@SpringBootApplication(scanBasePackages = {"com.rs.springframework"})
-@ComponentScan({"com.rs.springframework.api.v1","com.rs.springframework.bootstrap"})
+@ComponentScan({"com.rs.springframework.api.v1"})
 //@EnableJpaRepositories("com.rs.springframework.repositories")
 @SpringBootApplication
 public class Spring5MvcRestApplication {

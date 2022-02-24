@@ -6,6 +6,7 @@ import com.rs.springframework.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * created by rs 2/23/2022.
@@ -23,11 +24,14 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<CategoryDTO> getAllCategories() {
-        return null;
+        return categoryRepository.findAll()
+                .stream()
+                .map(categoryMapper::categoryToCategoryDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
     public CategoryDTO getCategoryByName(String name) {
-        return null;
+        return categoryMapper.categoryToCategoryDTO(categoryRepository.findByName(name));
     }
 }
