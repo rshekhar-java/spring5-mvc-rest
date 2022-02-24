@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 /**
  * created by rs 2/23/2022.
  */
-@Repository
+
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }

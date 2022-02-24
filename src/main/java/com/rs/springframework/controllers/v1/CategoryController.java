@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * created by rs 2/23/2022.
  */
 @Controller
-@RequestMapping("/api/v1/categories/")
+@RequestMapping("/api/v1/categories")
 public class CategoryController {
     private final CategoryService categoryService;
 
@@ -29,7 +29,7 @@ public class CategoryController {
                 new CategoryListDTO(categoryService.getAllCategories()), HttpStatus.OK);
     }
 
-    @GetMapping("{name}")
+    @GetMapping("/{name}")
     public ResponseEntity<CategoryDTO> getCategoryByName(@PathVariable String name){
         return new ResponseEntity<CategoryDTO>(
                 categoryService.getCategoryByName(name), HttpStatus.OK
