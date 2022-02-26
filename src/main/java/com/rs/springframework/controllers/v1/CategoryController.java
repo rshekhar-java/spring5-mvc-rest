@@ -4,6 +4,7 @@ import com.rs.springframework.api.v1.model.CategoryDTO;
 import com.rs.springframework.api.v1.model.CategoryListDTO;
 import com.rs.springframework.services.CategoryService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
