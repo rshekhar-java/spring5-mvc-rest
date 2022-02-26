@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(controllers = {VendorController.class})
 public class VendorControllerTest {
 
-   /* @MockBean //provided by Spring Context
+    @MockBean //provided by Spring Context
     VendorService vendorService;
 
     @Autowired
@@ -114,6 +114,6 @@ public class VendorControllerTest {
 
         then(vendorService).should().deleteVendorById(anyLong());
 
-    }*/
+    }
 
 }

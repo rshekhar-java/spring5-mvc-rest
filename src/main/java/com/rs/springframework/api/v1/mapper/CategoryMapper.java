@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * created by rs 2/23/2022.
  */
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CategoryMapper {
     CategoryMapper INSTANCE= Mappers.getMapper(CategoryMapper.class);
 
