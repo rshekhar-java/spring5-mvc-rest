@@ -5,7 +5,6 @@ import com.rs.springframework.api.v1.model.CustomerDTO;
 import com.rs.springframework.controllers.v1.CustomerController;
 import com.rs.springframework.domain.Customer;
 import com.rs.springframework.repositories.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

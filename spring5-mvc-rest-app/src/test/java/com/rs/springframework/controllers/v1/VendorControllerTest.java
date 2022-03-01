@@ -2,7 +2,6 @@ package com.rs.springframework.controllers.v1;
 
 import com.rs.springframework.api.v1.model.VendorDTO;
 import com.rs.springframework.api.v1.model.VendorListDTO;
-import com.rs.springframework.controllers.v1.VendorController;
 import com.rs.springframework.services.VendorService;
 import org.junit.Before;
 import org.junit.Test;
