@@ -104,27 +104,21 @@ public class CustomerControllerTest {
         returnDTO.setLastname(customer.getLastname());
         returnDTO.setCustomerUrl(CustomerController.BASE_URL + "/1");
 
-        when(customerService.createNewCustomer(customer)).thenReturn(returnDTO);
+//        when(customerService.createNewCustomer(customer)).thenReturn(returnDTO);
+        //for jaxb
+        when(customerService.createNewCustomer(any())).thenReturn(returnDTO);
+
 
         //when/then
-    /*    mockMvc.perform(post(CustomerController.BASE_URL)
+        mockMvc.perform(post(CustomerController.BASE_URL)
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(asJsonString(customer)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.firstname", equalTo("Fred")))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));*/
+//                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
         //for jaxb testing
-                mockMvc.perform(post(CustomerController.BASE_URL)
-                        .accept(MediaType.APPLICATION_JSON)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(customer)))
-                .andExpect(status().isCreated())
-                        .andReturn().getResponse().getContentAsString();
-/*
-                .andExpect(jsonPath("$.customer.firstname", equalTo("Fred")))
-                .andExpect(jsonPath("$.customer.customerurl", equalTo(CustomerController.BASE_URL + "/1")));
-*/
+                .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL + "/1")));
 
 /*        String response = mockMvc.perform(post("/api/v1/customers/")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -156,7 +150,9 @@ public class CustomerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstname", equalTo("Fred")))
                 .andExpect(jsonPath("$.lastname", equalTo("Flintstone")))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
+//                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
+                //for jaxb
+                .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL + "/1")));
     }
 
     @Test
@@ -171,7 +167,9 @@ public class CustomerControllerTest {
         returnDTO.setLastname("Flintstone");
         returnDTO.setCustomerUrl(CustomerController.BASE_URL + "/1");
 
-        when(customerService.patchCustomer(anyLong(), any(CustomerDTO.class))).thenReturn(returnDTO);
+//        when(customerService.patchCustomer(anyLong(), any(CustomerDTO.class))).thenReturn(returnDTO);
+        //for jaxb
+        when(customerService.patchCustomer(anyLong(), any())).thenReturn(returnDTO);
 
         mockMvc.perform(patch(CustomerController.BASE_URL + "/1")
                         .accept(MediaType.APPLICATION_JSON)
@@ -180,7 +178,7 @@ public class CustomerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstname", equalTo("Fred")))
                 .andExpect(jsonPath("$.lastname", equalTo("Flintstone")))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
+                .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL + "/1")));
     }
 
     @Test
