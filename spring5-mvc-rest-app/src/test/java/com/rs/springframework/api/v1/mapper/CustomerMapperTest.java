@@ -1,7 +1,9 @@
 package com.rs.springframework.api.v1.mapper;
 
-import com.rs.springframework.api.v1.model.CustomerDTO;
+//import com.rs.springframework.api.v1.model.CustomerDTO;
+import com.rs.springframework.model.CustomerDTO;
 import com.rs.springframework.domain.Customer;
+import com.rs.springframework.model.CustomerDTO;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

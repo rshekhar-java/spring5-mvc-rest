@@ -1,7 +1,8 @@
 package com.rs.springframework.controllers.v1;
 
-import com.rs.springframework.api.v1.model.CustomerDTO;
-import com.rs.springframework.api.v1.model.CustomerListDTO;
+import com.rs.springframework.model.CustomerDTO;
+//import com.rs.springframework.api.v1.model.CustomerListDTO;
+import com.rs.springframework.model.CustomerListDTO;
 import com.rs.springframework.services.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,12 +30,18 @@ public class CustomerController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getListOfCustomers(){
-        return new CustomerListDTO(customerService.getAllCustomers());
+
+//        return new CustomerListDTO(customerService.getAllCustomers());
+
+        CustomerListDTO customerListDTO = new CustomerListDTO();
+        customerListDTO.getCustomers().addAll(customerService.getAllCustomers());
+        return customerListDTO;
+
     }
 
     @GetMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO getCustomerById(@PathVariable Long id){
+    public com.rs.springframework.model.CustomerDTO getCustomerById(@PathVariable Long id){
         return customerService.getCustomerById(id);
     }
 

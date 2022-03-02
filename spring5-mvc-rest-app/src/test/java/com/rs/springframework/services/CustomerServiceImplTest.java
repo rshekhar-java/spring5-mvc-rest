@@ -1,7 +1,7 @@
 package com.rs.springframework.services;
 
 import com.rs.springframework.api.v1.mapper.CustomerMapper;
-import com.rs.springframework.api.v1.model.CustomerDTO;
+import com.rs.springframework.model.CustomerDTO;
 import com.rs.springframework.domain.Customer;
 import com.rs.springframework.repositories.CustomerRepository;
 import org.junit.Before;

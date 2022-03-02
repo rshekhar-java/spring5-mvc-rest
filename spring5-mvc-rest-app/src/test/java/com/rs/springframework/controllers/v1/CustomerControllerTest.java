@@ -1,6 +1,7 @@
 package com.rs.springframework.controllers.v1;
 
-import com.rs.springframework.api.v1.model.CustomerDTO;
+//import com.rs.springframework.api.v1.model.CustomerDTO;
+import com.rs.springframework.model.CustomerDTO;
 import com.rs.springframework.controllers.RestResponseEntityExceptionHandler;
 import com.rs.springframework.services.CustomerService;
 import com.rs.springframework.services.ResourceNotFoundException;
@@ -16,6 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.Arrays;
 
 
+//import static com.rs.springframework.controllers.v1.AbstractRestControllerTest.asJsonString;
 import static com.rs.springframework.controllers.v1.AbstractRestControllerTest.asJsonString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -105,13 +107,25 @@ public class CustomerControllerTest {
         when(customerService.createNewCustomer(customer)).thenReturn(returnDTO);
 
         //when/then
-        mockMvc.perform(post(CustomerController.BASE_URL)
+    /*    mockMvc.perform(post(CustomerController.BASE_URL)
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(asJsonString(customer)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.firstname", equalTo("Fred")))
-                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
+                .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));*/
+        //for jaxb testing
+                mockMvc.perform(post(CustomerController.BASE_URL)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(asJsonString(customer)))
+                .andExpect(status().isCreated())
+                        .andReturn().getResponse().getContentAsString();
+/*
+                .andExpect(jsonPath("$.customer.firstname", equalTo("Fred")))
+                .andExpect(jsonPath("$.customer.customerurl", equalTo(CustomerController.BASE_URL + "/1")));
+*/
+
 /*        String response = mockMvc.perform(post("/api/v1/customers/")
                 .contentType(MediaType.APPLICATION_JSON))
                 .content(asJsonString(customer))

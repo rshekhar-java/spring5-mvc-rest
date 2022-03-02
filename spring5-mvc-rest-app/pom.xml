@@ -3,27 +3,32 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.rs.springframework</groupId>
+        <artifactId>spring5-mvc-rest-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.rs.springframework</groupId>
+<!--    <groupId>com.rs.springframework</groupId>-->
     <artifactId>spring5-mvc-rest-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+<!--    <version>0.0.1-SNAPSHOT</version>-->
     <packaging>jar</packaging>
 
-    <name>spring5-mvc-rest-app</name>
+    <name>spring5-mvc-rest</name>
     <description>spring5-mvc-rest-app</description>
-    <properties>
-        <java.version>1.8</java.version>
-        <swagger2.version>3.0.0</swagger2.version>
-        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
+
+<!--    <properties>-->
+<!--        <java.version>1.8</java.version>-->
+<!--        <swagger2.version>3.0.0</swagger2.version>-->
+<!--        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+<!--    </properties>-->
     <dependencies>
+        <dependency>
+            <groupId>com.rs.springframework</groupId>
+            <artifactId>rest-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
